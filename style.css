@@ -1,0 +1,752 @@
+/* Estilos Generales */
+:root {
+    --primary: #246227;  /* Verde principal */
+    --secondary: #FFD54F; /* Amarillo acento */
+    --dark: #1B5E20;     /* Verde oscuro */
+    --neutral-start: #f3f3f3; /* header left light */
+    --neutral-end: #434343;   /* header right dark */
+    --light: #F5F5F5;    /* Fondo claro */
+    --text: #0e0d0d;     /* Texto principal */
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+    color: var(--text);
+    line-height: 1.6;
+    background-color: var(--light);
+}
+
+
+/* Navbar */
+.navbar {
+    /* Neutral header so logo reads well; green kept as accent elsewhere */
+    background: linear-gradient(90deg, var(--neutral-start) 0%, var(--neutral-end) 100%);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    position: relative;
+    min-height: 120px; /* Altura para contener el logo */
+    padding: 0 1rem; /* Padding horizontal reducido */
+}
+
+.navbar-brand {
+    /* keep brand on left; flow changed on small screens via mobile rules */
+    position: absolute;
+    left: 50px; /* Aumentado para alejar el logo del borde izquierdo */
+    top: 15px; /* Añadido margen superior para bajar el logo */
+    height: calc(100% - 15px); /* Ajustado para compensar el margen superior */
+    display: flex;
+    align-items: center;
+    z-index: 1000;
+    padding-left: 8px;
+}
+
+.navbar-logo {
+    height: 130px; /* Aumentado para mejor visibilidad */
+    width: auto; /* Conserva proporciones */
+    object-fit: contain;
+    transition: transform 0.3s ease;
+    filter: drop-shadow(2px 2px 6px rgba(0,0,0,0.12));
+}
+
+
+/* Ajuste clave para el contenedor de enlaces */
+.navbar-collapse {
+    margin-top: 20px; /* Espacio para el logo */
+    width: 100%;
+}
+
+.navbar-nav {
+    display: flex;
+    align-items: center;
+    gap: 1rem; /* Controla el espacio entre enlaces */
+}
+
+.nav-link {
+    font-size: 1.3rem; /* Tamaño de fuente ajustado */
+    color: #ffffff; /* keep white on header */
+    font-weight: 600;
+    transition: all 0.2s ease;
+    padding: 0.5rem 0.9rem; /* Padding reducido */
+    border-radius: 6px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+
+
+.nav-link:hover {
+    color: var(--secondary);
+    transform: translateY(-2px);
+}
+
+.navbar-nav .nav-link {
+    color: #161515 !important;
+}
+
+.navbar-nav .nav-link:hover {
+    color: var(--secondary) !important;
+}
+
+/* Make page colors more distinct: use green as accent, neutral text for body */
+/* Use the defined --text (black) as main copy color */
+body, p, li { color: var(--text); }
+.section-header h2, .producto-card h3 { color: var(--primary); }
+.producto-card p, .market-info, .values-grid p { color: var(--text); }
+
+/* Links (non-header) use primary green to stand out from body text */
+a { color: var(--primary); }
+a:hover { color: var(--dark); }
+/* Hero Section - Versión Limpia */
+.hero {
+    padding: 100px 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    background-color: #184e24; /* fallback color while image loads */
+}
+
+/* Position the responsive picture behind content */
+.hero-media {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+}
+.hero-media picture,
+.hero-media img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+/* Overlay suave para garantizar contraste del texto sobre la imagen */
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.32);
+    z-index: 0;
+}
+
+.hero .container {
+    position: relative;
+    z-index: 1;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    color: #e9f0e7;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+}
+
+.hero p {
+    font-size: 1.5rem;
+    margin-bottom: 2.5rem;
+    color: #e8e3e3;
+    max-width: 600px;
+    font-weight: 500;
+}
+
+.hero .btn-primary {
+    background-color: var(--secondary);
+    color: var(--dark);
+    border: none;
+    padding: 1rem 2.5rem;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.hero .btn-primary:hover {
+    transform: translateY(-3px);
+    background-color: #ffe100;
+}
+
+/* ------------------ RESPONSIVE ------------------ */
+@media (max-width: 992px) {
+    .global-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .about-section .row {
+        flex-direction: column-reverse;
+        gap: 2rem;
+    }
+    
+    .about-main-img {
+        height: 400px;
+    }
+    
+    .timeline-year {
+        left: -35px;
+        width: 60px;
+        height: 60px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .section-header h2 {
+        font-size: 2.2rem;
+    }
+    
+    .market-card {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .flag-wrapper {
+        margin: 0 auto;
+    }
+}
+
+/* Make navbar collapse behave normally on small screens; only layout as flex on large viewports */
+@media (min-width: 992px) {
+    .navbar-collapse {
+        display: flex;
+        justify-content: flex-end; /* Alinea el menú a la derecha */
+    }
+}
+
+/* Extra safety for about section on tablets and phones */
+@media (max-width: 992px) {
+    .about-image-wrapper {
+        margin-top: 0 !important;
+        margin-left: 0 !important;
+        transform: none !important;
+        width: 100% !important;
+        border-radius: 12px;
+        overflow: hidden;
+    }
+
+    .about-main-img {
+        height: auto;
+        max-height: 480px;
+        object-fit: cover;
+    }
+
+    .experience-badge {
+        position: relative;
+        left: auto;
+        top: auto;
+        margin: 1rem 0 0 0;
+        display: inline-block;
+    }
+
+    /* Prevent small horizontal overflows that cause the site to appear cut */
+    html, body { overflow-x: hidden; }
+}
+
+
+/* Sección Productos */
+.productos {
+    padding: 5rem 0;
+    background: white;
+}
+
+.productos h2 {
+    text-align: center;
+    color: var(--dark);
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+}
+
+.producto-card {
+    background: white;
+    border-radius: 15px;
+    padding: 1.5rem;
+    margin: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    height: 100%;
+}
+
+.producto-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.producto-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+}
+
+.producto-card h3 {
+    color: var(--dark);
+    margin-bottom: 1rem;
+}
+
+/* Separación mínima entre filas de productos (evita que las tarjetas de la
+   fila superior queden pegadas a las de la fila inferior). Usamos row-gap en
+   el contenedor .row para no interferir con el gutter de bootstrap. */
+.productos .row {
+    row-gap: 2rem; /* ajustable: 2rem ~ 32px */
+}
+
+.productos .col-md-4 {
+    /* margen inferior adicional si el navegador no soporta row-gap en flex */
+    margin-bottom: 0.75rem;
+}
+
+/* ------------------ ACERCA DE NOSOTROS ------------------ */
+.about-section {
+    padding: 6rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.section-header h2 {
+    font-size: 2.8rem;
+    color: var(--dark);
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.section-header h2::after {
+    content: '';
+    position: absolute;
+    bottom: -12px; /* mover línea más arriba, más cerca del título */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 6rem; /* usar unidades relativas para consistency across headings */
+    height: 0.25rem; /* 4px equivalentes */
+    background: var(--primary);
+}
+
+/* Ajuste responsive: reducir la línea en pantallas pequeñas para evitar que parezca demasiado larga */
+@media (max-width: 576px) {
+    .section-header h2::after {
+        width: 4rem;
+        height: 0.2rem;
+        bottom: -10px;
+    }
+}
+
+.section-subtitle {
+    color: var(--text); /* default near-black for body-aligned subtitles */
+    font-size: 0.95rem; /* tamaño de subtítulo */
+    text-transform: none; /* keep natural case for better hierarchy */
+    letter-spacing: 1.2px;
+    font-weight: 600; /* un poco más fuerte según tu petición */
+    margin-top: 1.2rem; /* más espacio entre la línea decorativa y el subtítulo */
+}
+
+.about-image-wrapper {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-top: -30px;
+    margin-left: -70px;
+    transform: translateX(-5%);
+    width: calc(100% + 50px);
+}
+
+.about-main-img {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.experience-badge {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    background: var(--secondary);
+    padding: 1.5rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    color: var(--dark);
+}
+
+.about-timeline {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 40px;
+}
+
+.timeline-item {
+    position: relative;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    background: white;
+    border-left: 4px solid var(--primary);
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.timeline-year {
+    font-size: 1.4rem;
+    color: var(--primary);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.value-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid #e0f2e9;
+}
+
+.value-icon {
+    width: 80px;
+    height: 80px;
+    background: rgba(46,125,50,0.1);
+    border-radius: 50%;
+    margin: 0 auto 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.value-icon img {
+    width: 40px;
+    height: 40px;
+}
+
+/* ------------------ MERCADOS INTERNACIONALES ------------------ */
+.markets-section {
+    padding: 6rem 0;
+    position: relative;
+    background: rgb(17, 17, 17);
+    color: white;
+}
+
+.map-bg-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0.1;
+}
+
+.world-map-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.global-grid {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.markets-content {
+    display: grid;
+    gap: 1.5rem;
+}
+
+/* Make the section subtitle in dark markets section clearly white */
+.markets-section .section-subtitle {
+    color: #ffffff;
+    opacity: 0.95;
+    font-weight: 600; /* reforzado para mejor legibilidad sobre fondo oscuro */
+    font-size: 0.95rem; /* más pequeño para no competir con el título */
+    text-transform: none; /* mantener consistencia visual con otras secciones */
+    margin-top: 1.2rem; /* más separación de la línea decorativa */
+}
+
+.market-card {
+    background: rgba(255,255,255,0.9);
+    -webkit-backdrop-filter: blur(5px); /* Safari */
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    padding: 1.5rem;
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    color: var(--dark);
+}
+
+.flag-wrapper {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.market-flag {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+
+
+
+/* Contacto */
+.contacto {
+    padding: 3rem 0; /* sección más compacta */
+    background: var(--light);
+}
+
+/* New contact section styles */
+.contact-grid { gap: 1rem; }
+.contact-info { max-width: 520px; padding-right: 1.25rem; }
+.contact-info h3 { color: var(--primary); margin-bottom: 0.5rem; font-size: 1.25rem; }
+.contact-list { list-style: none; padding: 0; margin: 0 0 0.75rem 0; }
+.contact-list li { margin-bottom: 0.45rem; color: var(--text); }
+
+.contact-actions { display: flex; flex-direction: column; gap: 0.75rem; max-width: 320px; }
+.contact-actions .btn { width: 100%; text-align: center; padding: 0.65rem 0.9rem; border-radius: 8px; font-weight: 600; }
+.btn-cta { background: var(--secondary); color: #1b1b1b; border: none; }
+.btn-outline-primary { color: var(--primary); border-color: var(--primary); }
+.btn-outline-primary:hover { background: var(--primary); color: #fff; }
+.btn-outline-secondary { color: var(--dark); border-color: rgba(0,0,0,0.08); }
+.btn-outline-secondary:hover { background: rgba(0,0,0,0.04); }
+
+@media (max-width: 768px) {
+    .contact-actions { max-width: 100%; }
+    .section-header { margin-bottom: 1rem; }
+}
+
+.contacto form {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.contacto input,
+.contacto textarea {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1.5rem;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+/* Estilos de foco visibles para accesibilidad */
+.contacto input:focus,
+.contacto textarea:focus,
+.nav-link:focus,
+.producto-card:focus {
+    outline: 3px solid rgba(36,98,39,0.15);
+    outline-offset: 3px;
+}
+
+/* Skip link visible al enfocar con teclado */
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+.skip-link:focus {
+    position: static;
+    left: auto;
+    width: auto;
+    height: auto;
+    padding: 0.5rem 1rem;
+    background: #000;
+    color: #fff;
+    z-index: 2000;
+    border-radius: 4px;
+}
+
+.contacto input:focus,
+.contacto textarea:focus {
+    border-color: var(--primary);
+    outline: none;
+    box-shadow: 0 0 8px rgba(46,125,50,0.2);
+}
+
+.social {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1.5rem; 
+}
+
+.social img {
+    width: 45px;
+    height: 45px; /* tamaño corregido para íconos sociales */
+    transition: transform 0.3s ease;
+}
+
+.social img:hover {
+    transform: translateY(-3px);
+}
+
+/* Footer */
+footer {
+    /* Footer with dark background and white text (corporate accent) */
+    background: var(--dark);
+    color: #ffffff;
+    padding: 2rem 0;
+    text-align: center;
+}
+
+/* Stronger footer text for legibility */
+footer p, footer small, footer a {
+    color: #ede9e9;
+    font-weight: 600;
+}
+footer a { text-decoration: underline; }
+footer a:hover { color: var(--secondary); text-decoration: none; }
+footer .privacy-link { color: var(--secondary); }
+
+/* Navbar active/hover tweaks to ensure contrast across sections */
+.nav-link {
+    transition: color 0.15s ease, background-color 0.15s ease;
+}
+.nav-link:hover,
+.nav-link:focus {
+    color: var(--primary) !important;
+}
+.nav-link.active {
+    color: var(--primary) !important;
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+/* ---------------- MOBILE FIXES ---------------- */
+@media (max-width: 768px) {
+    /* Navbar */
+    .navbar { padding: 0.5rem 1rem; }
+    .navbar-logo { height: 80px; }
+
+    /* Hero */
+    .hero { padding: 48px 0; min-height: 55vh; }
+    .hero h1 { font-size: 1.6rem; }
+    .hero p { font-size: 0.95rem; }
+    .hero .btn-primary { padding: 0.5rem 0.9rem; font-size: 0.95rem; }
+
+    /* Productos */
+    .productos .row { row-gap: 1.25rem; }
+    .producto-card { padding: 0.9rem; }
+    .producto-card img { height: 160px; }
+    .producto-card h3 { font-size: 1rem; }
+    .producto-card p { font-size: 0.9rem; }
+}
+
+@media (max-width: 576px) {
+    .navbar-logo { height: 70px; }
+    .producto-card img { height: 140px; }
+    /* For very small screens ensure two columns per row */
+    .productos .col-6 { flex: 0 0 50%; max-width: 50%; }
+}
+
+/* ---------------- MOBILE SAFETY OVERRIDES ---------------- */
+@media (max-width: 768px) {
+    /* On small screens make the brand flow rather than absolutely positioned
+       so it doesn't overlap the collapsed menu or hero text. */
+    .navbar-brand {
+        position: static;
+        left: auto;
+        top: auto;
+        height: auto;
+        display: block;
+        margin-right: 0.75rem;
+    }
+
+    .navbar {
+        min-height: 0; /* let content determine height */
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+    }
+
+    .navbar-collapse {
+        margin-top: 0; /* avoid extra offset pushing content */
+    }
+
+    /* Fix for about-image wrapper: remove large negative margins and transform
+       which cause overflow on narrow screens */
+    .about-image-wrapper {
+        margin-top: 0;
+        margin-left: 0;
+        transform: none;
+        width: 100%;
+        border-radius: 12px;
+        overflow: hidden;
+    }
+
+    .about-main-img {
+        height: auto;
+        max-height: 420px;
+        object-fit: cover;
+        border-radius: 12px;
+    }
+
+    /* Slightly reduce spacings so the content fits vertically */
+    .about-section { padding: 3rem 0; }
+    .section-header { margin-bottom: 2rem; }
+}
+
+@media (max-width: 420px) {
+    /* Extra small screens: reduce hero heading and paragraph sizes */
+    .hero h1 { font-size: 1.3rem; }
+    .hero p { font-size: 0.9rem; max-width: 100%; }
+}
+
+/* ---------------- REDUCIR ESPACIOS VERTICALES ---------------- */
+@media (max-width: 992px) {
+    /* Hero menos alto para que no empuje tanto contenido */
+    .hero { padding: 40px 0; min-height: 60vh; }
+    .hero h1 { font-size: 2.4rem; line-height: 1.05; }
+    .hero p { font-size: 1rem; }
+
+    /* Secciones con padding reducido */
+    .productos { padding: 3rem 0; }
+    .about-section { padding: 3rem 0; }
+    .markets-section { padding: 3rem 0; }
+    .contacto { padding: 2.5rem 0; }
+
+    /* Product cards más compactas */
+    .producto-card { padding: 1rem; margin: 0.6rem; }
+    .producto-card img { height: 180px; }
+
+    /* Encabezados más compactos */
+    .section-header { margin-bottom: 1.5rem; }
+    .section-header h2 { font-size: 2.2rem; }
+}
+
+@media (max-width: 576px) {
+    .hero { padding: 32px 0; min-height: 48vh; }
+    .hero h1 { font-size: 1.6rem; }
+    .hero p { font-size: 0.95rem; }
+
+    .productos { padding: 2rem 0; }
+    .about-section { padding: 2rem 0; }
+    .contacto { padding: 1.5rem 0; }
+
+    .producto-card { padding: 0.9rem; margin: 0.5rem; }
+    .producto-card img { height: 150px; }
+
+    .value-card, .market-card { padding: 1rem; }
+}
+
