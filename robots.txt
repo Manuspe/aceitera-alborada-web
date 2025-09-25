@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+# Archivos a evitar
+Disallow: /admin/
+Disallow: /private/
+Disallow: /.git/
+
+# Sitemap
+Sitemap: https://www.alborada.tech/sitemap.xml
+
+# Crawl delay (opcional)
+Crawl-delay: 1
