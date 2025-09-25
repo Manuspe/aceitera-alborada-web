@@ -19,18 +19,21 @@ body {
 
 /* Navbar */
 .navbar {
-    /* Neutral header so logo reads well; green kept as accent elsewhere */
-    background: linear-gradient(90deg, var(--neutral-start) 0%, var(--neutral-end) 100%);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    /* Barra translúcida clara para integrarse mejor con la portada
+       (mejor legibilidad sin ocultar la imagen) */
+    background: rgba(255,255,255,0.72);
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
     position: relative;
-    min-height: 120px; /* Altura para contener el logo */
+    min-height: 120px; /* conserva altura original */
     padding: 0 1rem; /* Padding horizontal reducido */
 }
 
 .navbar-brand {
     /* keep brand on left; flow changed on small screens via mobile rules */
     position: absolute;
-    left: 50px; /* Aumentado para alejar el logo del borde izquierdo */
+    left: 70px; /* alejar el logo del borde izquierdo */
     top: 15px; /* Añadido margen superior para bajar el logo */
     height: calc(100% - 15px); /* Ajustado para compensar el margen superior */
     display: flex;
@@ -61,29 +64,31 @@ body {
 }
 
 .nav-link {
-    font-size: 1.3rem; /* Tamaño de fuente ajustado */
-    color: #ffffff; /* keep white on header */
+    font-size: 1.35rem; /* aumentado para mejor legibilidad en escritorio */
+    color: var(--dark) !important; /* verde oscuro del branding para enlaces */
     font-weight: 600;
-    transition: all 0.2s ease;
-    padding: 0.5rem 0.9rem; /* Padding reducido */
+    transition: color 0.18s ease, transform 0.18s ease, background-color 0.18s ease;
+    padding: 0.5rem 0.9rem; /* padding cómodo */
     border-radius: 6px;
     text-align: center;
     white-space: nowrap;
+    background: transparent;
 }
 
-
-
-.nav-link:hover {
-    color: var(--secondary);
+/* hover / focus con acento amarillo y sutil fondo claro */
+.nav-link:hover,
+.nav-link:focus {
+    color: var(--secondary) !important; /* amarillo acento */
+    background: rgba(255,213,79,0.10);
     transform: translateY(-2px);
 }
 
-.navbar-nav .nav-link {
-    color: #161515 !important;
-}
-
-.navbar-nav .nav-link:hover {
+/* activa el estilo cuando está seleccionado */
+.nav-link.active {
     color: var(--secondary) !important;
+    font-weight: 700;
+    text-decoration: underline;
+    background: rgba(255,213,79,0.06);
 }
 
 /* Make page colors more distinct: use green as accent, neutral text for body */
@@ -601,7 +606,8 @@ footer .privacy-link { color: var(--secondary); }
 @media (max-width: 768px) {
     /* Navbar */
     .navbar { padding: 0.5rem 1rem; }
-    .navbar-logo { height: 80px; }
+    .navbar-logo { height: 76px; }
+    .nav-link { font-size: 1rem; padding: 0.4rem 0.8rem; }
 
     /* Hero */
     .hero { padding: 48px 0; min-height: 55vh; }
