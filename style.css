@@ -488,13 +488,7 @@ a:hover { color: var(--dark); }
 .contact-list { list-style: none; padding: 0; margin: 0 0 0.75rem 0; }
 .contact-list li { margin-bottom: 0.45rem; color: var(--text); }
 
-.contact-actions { display: flex; flex-direction: column; gap: 0.75rem; max-width: 320px; }
-.contact-actions .btn { width: 100%; text-align: center; padding: 0.65rem 0.9rem; border-radius: 8px; font-weight: 600; }
-.btn-cta { background: var(--secondary); color: #1b1b1b; border: none; }
-.btn-outline-primary { color: var(--primary); border-color: var(--primary); }
-.btn-outline-primary:hover { background: var(--primary); color: #fff; }
-.btn-outline-secondary { color: var(--dark); border-color: rgba(0,0,0,0.08); }
-.btn-outline-secondary:hover { background: rgba(0,0,0,0.04); }
+.contact-actions { max-width: 100%; }
 
 @media (max-width: 768px) {
     .contact-actions { max-width: 100%; }
