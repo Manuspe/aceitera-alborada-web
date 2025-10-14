@@ -716,3 +716,130 @@ footer .privacy-link { color: var(--secondary); }
     .market-card { padding: 1rem; }
 }
 
+/* ---------------- PÁGINAS DE PRODUCTO ---------------- */
+/* Hero para páginas de producto individuales */
+.product-hero {
+    min-height: 60vh;
+    padding: 80px 0;
+}
+
+/* Subtitle en hero de producto */
+.hero h1 small {
+    font-size: 0.5em;
+    opacity: 0.9;
+}
+
+/* Contenido principal de páginas de producto */
+.product-content {
+    background: white;
+}
+
+.product-content h2 {
+    color: var(--primary);
+    margin-bottom: 2rem;
+}
+
+.product-content h3 {
+    color: var(--primary);
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+}
+
+.product-content h4 {
+    color: var(--primary);
+    font-size: 1.2rem;
+}
+
+.product-content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.product-content ul {
+    font-size: 1.05rem;
+    line-height: 2;
+}
+
+/* Cards de aplicaciones en páginas de producto */
+.product-applications {
+    margin-top: 2rem;
+}
+
+.product-applications .producto-card {
+    height: 100%;
+}
+
+.product-applications h4 {
+    font-size: 1.2rem;
+}
+
+/* Sidebar de producto */
+.product-sidebar {
+    position: sticky;
+    top: 20px;
+}
+
+.product-sidebar h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.product-sidebar h4 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.product-sidebar p {
+    margin-bottom: 1.5rem;
+}
+
+.product-sidebar .contact-info p {
+    margin-bottom: 0.5rem;
+}
+
+.product-sidebar .btn-primary {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.product-sidebar hr {
+    margin: 2rem 0;
+}
+
+.product-sidebar .product-links {
+    list-style: none;
+    padding: 0;
+}
+
+.product-sidebar .product-links li {
+    margin-bottom: 0.5rem;
+}
+
+.product-sidebar .product-links a {
+    color: var(--primary);
+}
+
+/* Sección de mercados en páginas de producto */
+.product-markets {
+    margin-top: 4rem;
+    padding: 3rem;
+    background: var(--light);
+    border-radius: 15px;
+}
+
+.product-markets h3 {
+    color: var(--primary);
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.product-markets p {
+    text-align: center;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+.product-markets .btn-container {
+    text-align: center;
+}
+
