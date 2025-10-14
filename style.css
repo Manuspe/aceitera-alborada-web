@@ -3,8 +3,6 @@
     --primary: #246227;  /* Verde principal */
     --secondary: #FFD54F; /* Amarillo acento */
     --dark: #1B5E20;     /* Verde oscuro */
-    --neutral-start: #f3f3f3; /* header left light */
-    --neutral-end: #434343;   /* header right dark */
     --light: #F5F5F5;    /* Fondo claro */
     --text: #0e0d0d;     /* Texto principal */
 }
@@ -519,7 +517,13 @@ a:hover { color: var(--dark); }
 
 /* Estilos de foco visibles para accesibilidad */
 .contacto input:focus,
-.contacto textarea:focus,
+.contacto textarea:focus {
+    border-color: var(--primary);
+    outline: 3px solid rgba(36,98,39,0.15);
+    outline-offset: 3px;
+    box-shadow: 0 0 8px rgba(46,125,50,0.2);
+}
+
 .nav-link:focus,
 .producto-card:focus {
     outline: 3px solid rgba(36,98,39,0.15);
@@ -545,13 +549,6 @@ a:hover { color: var(--dark); }
     color: #fff;
     z-index: 2000;
     border-radius: 4px;
-}
-
-.contacto input:focus,
-.contacto textarea:focus {
-    border-color: var(--primary);
-    outline: none;
-    box-shadow: 0 0 8px rgba(46,125,50,0.2);
 }
 
 .social {
