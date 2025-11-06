@@ -1,19 +1,30 @@
 // Smooth Scroll
-// Evita error con href="#"
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
-        const target = this.getAttribute('href');
-        if (target === "#") {
-            // Previene el salto arriba y NO intenta seleccionar
+        const href = this.getAttribute('href');
+        
+        // Si el href es solo "#", previene el comportamiento por defecto sin hacer nada más.
+        if (href === '#') {
             e.preventDefault();
             return;
         }
-        if (target && target.length > 1) { // solo si hay algo después del "#"
-            const el = document.querySelector(target);
-            if (el) {
+
+        // Intenta encontrar un elemento que coincida con el selector del href.
+        // Esto funciona para IDs como #inicio, #productos, etc.
+        try {
+            const targetElement = document.querySelector(href);
+            
+            // Si se encuentra el elemento, realiza el desplazamiento suave.
+            if (targetElement) {
                 e.preventDefault();
-                el.scrollIntoView({ behavior: 'smooth' });
+                targetElement.scrollIntoView({
+                    behavior: 'smooth'
+                });
             }
+        } catch (error) {
+            // Si el selector es inválido (lo que puede ocurrir con href="#"),
+            // se captura el error para que no detenga otros scripts.
+            console.error("Error al intentar seleccionar el ancla:", href, error);
         }
     });
 });
