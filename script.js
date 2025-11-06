@@ -2,10 +2,9 @@
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         const href = this.getAttribute('href');
-        
-        // Si el href es solo "#", previene el comportamiento por defecto sin hacer nada más.
-        if (href === '#') {
-            e.preventDefault();
+
+        // Si el href es solo "#" o no es un enlace de ancla interno, no hacer nada.
+        if (href === '#' || !href.startsWith('#')) {
             return;
         }
 
