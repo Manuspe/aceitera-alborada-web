@@ -570,13 +570,20 @@ footer {
 }
 
 /* Stronger footer text for legibility */
-footer p, footer small, footer a {
+footer p, footer small {
     color: #ede9e9;
     font-weight: 600;
 }
-footer a { text-decoration: underline; }
+footer a { 
+    color: #ede9e9;
+    font-weight: 600;
+    text-decoration: underline; 
+}
 footer a:hover { color: var(--secondary); text-decoration: none; }
-footer .privacy-link { color: var(--secondary); }
+footer .privacy-link { 
+    color: var(--secondary) !important; 
+    font-weight: 600;
+}
 
 /* ============================================
    RESPONSIVE - MEDIA QUERIES CONSOLIDADAS
@@ -654,7 +661,7 @@ footer .privacy-link { color: var(--secondary); }
     
     /* Encabezados más compactos - jerarquía visual mejorada */
     .section-header { margin-bottom: 1.5rem; }
-    .section-header h2 { font-size: 1.9rem; } /* Reducido de 2.2rem a 1.9rem */
+    .section-header h2 { font-size: 2.2rem; } /* Reducido de 2.2rem a 1.9rem */
     
     /* Mercados y About */
     .global-grid {
@@ -723,7 +730,7 @@ footer .privacy-link { color: var(--secondary); }
     .producto-card p { font-size: 0.9rem; }
     
     /* Títulos de sección más pequeños que el hero */
-    .section-header h2 { font-size: 1.7rem; } /* Reducido para mejor jerarquía */
+    .section-header h2 { font-size: 2.0rem; } /* Reducido para mejor jerarquía */
     
     /* Market cards */
     .market-card {
@@ -757,7 +764,7 @@ footer .privacy-link { color: var(--secondary); }
     .contacto { padding: 1.5rem 0; }
     
     /* Títulos de sección */
-    .section-header h2 { font-size: 1.5rem; } /* Reducido para mantener jerarquía */
+    .section-header h2 { font-size: 1.7rem; } /* Reducido para mantener jerarquía */
     
     /* Productos */
     .producto-card { padding: 0.9rem; margin: 0.5rem; }
@@ -779,7 +786,7 @@ footer .privacy-link { color: var(--secondary); }
 @media (max-width: 420px) {
     .hero h1 { font-size: 1.7rem; } /* Aumentado de 1.3rem a 1.7rem */
     .hero p { font-size: 0.95rem; max-width: 100%; } /* Aumentado de 0.9rem a 0.95rem */
-    .section-header h2 { font-size: 1.35rem; } /* Reducido para mantener jerarquía */
+    .section-header h2 { font-size: 1.5rem; } /* Reducido para mantener jerarquía */
 }
 
 /* ---------------- PÁGINAS DE PRODUCTO ---------------- */
