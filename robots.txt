@@ -1,13 +1,31 @@
+# Aceitera Alborada S.A. - Robots.txt
+# Santa Fe, Argentina - Aceites Comestibles e Industriales
+
 User-agent: *
 Allow: /
+Allow: /*.css
+Allow: /*.js
+Allow: /images/
 
 # Archivos a evitar
 Disallow: /admin/
 Disallow: /private/
 Disallow: /.git/
+Disallow: /*?*session=
+Disallow: /*?*sid=
 
-# Sitemap
+# Bots específicos
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /images/
+
+User-agent: Bingbot
+Allow: /
+
+# Sitemap principal
 Sitemap: https://www.alborada.tech/sitemap.xml
 
-# Crawl delay (opcional)
+# Crawl delay para evitar sobrecarga
 Crawl-delay: 1

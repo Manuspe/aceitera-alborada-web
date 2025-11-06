@@ -52,14 +52,19 @@ body {
     border: 2px solid var(--dark);
     padding: 0.5rem 0.75rem;
     background-color: rgba(255,255,255,0.9);
+    position: relative;
+    z-index: 1010;
 }
 
 .navbar-toggler:focus {
     box-shadow: 0 0 0 0.25rem rgba(36, 98, 39, 0.25);
+    outline: none;
 }
 
 .navbar-toggler-icon {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgb(27, 94, 32)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    width: 1.5em;
+    height: 1.5em;
 }
 
 
@@ -434,18 +439,38 @@ a:hover { color: var(--dark); }
 .contact-actions { max-width: 100%; }
 
 /* Enlaces de contacto clicables */
+.contact-list {
+    position: relative;
+    z-index: 1;
+}
+
+.contact-list li {
+    position: relative;
+}
+
 .contact-list a {
     color: var(--primary);
     text-decoration: none;
     font-weight: 600;
     transition: all 0.3s ease;
-    cursor: pointer;
-    pointer-events: auto;
+    cursor: pointer !important;
+    pointer-events: auto !important;
+    position: relative;
+    z-index: 100;
+    display: inline-block;
+    padding: 2px 4px;
+    margin: -2px -4px;
 }
 
 .contact-list a:hover {
     color: var(--secondary);
     text-decoration: underline;
+    background: rgba(255, 213, 79, 0.1);
+}
+
+.contact-list a:active {
+    color: var(--dark);
+    background: rgba(255, 213, 79, 0.2);
 }
 
 .contact-list a:focus {
@@ -585,7 +610,13 @@ footer .privacy-link { color: var(--secondary); }
     }
     
     .navbar-logo {
-        height: 50px;
+        height: 65px;
+    }
+    
+    /* Asegurar que el toggler esté visible y funcional */
+    .navbar-toggler {
+        z-index: 1002;
+        position: relative;
     }
     
     .navbar-collapse {
@@ -644,6 +675,7 @@ footer .privacy-link { color: var(--secondary); }
         width: 100% !important;
         border-radius: 12px;
         overflow: hidden;
+        position: relative;
     }
 
     .about-main-img {
@@ -653,11 +685,17 @@ footer .privacy-link { color: var(--secondary); }
     }
 
     .experience-badge {
-        position: relative;
-        left: auto;
-        top: auto;
-        margin: 1rem 0 0 0;
-        display: inline-block;
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+        margin: 0;
+        padding: 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .experience-badge span {
+        font-size: 2rem;
+        display: block;
     }
     
     .timeline-year {
