@@ -47,6 +47,10 @@ body {
     filter: drop-shadow(2px 2px 6px rgba(0,0,0,0.12));
 }
 
+.navbar-logo:hover {
+    transform: scale(1.05);
+}
+
 /* Botón hamburguesa visible */
 .navbar-toggler {
     border: 2px solid var(--dark);
@@ -115,8 +119,14 @@ body, p, li { color: var(--text); }
 .producto-card p, .market-info { color: var(--text); }
 
 /* Links (non-header) use primary green to stand out from body text */
-a { color: var(--primary); }
-a:hover { color: var(--dark); }
+/* Excludes navigation links to avoid conflicts */
+a:not(.nav-link):not(.navbar-brand):not(.btn) { 
+    color: var(--primary); 
+}
+a:not(.nav-link):not(.navbar-brand):not(.btn):hover { 
+    color: var(--dark); 
+}
+
 /* Hero Section - Versión Limpia */
 .hero {
     padding: 100px 0;
@@ -565,20 +575,6 @@ footer p, footer small, footer a {
 footer a { text-decoration: underline; }
 footer a:hover { color: var(--secondary); text-decoration: none; }
 footer .privacy-link { color: var(--secondary); }
-
-/* Navbar active/hover tweaks to ensure contrast across sections */
-.nav-link {
-    transition: color 0.15s ease, background-color 0.15s ease;
-}
-.nav-link:hover,
-.nav-link:focus {
-    color: var(--primary) !important;
-}
-.nav-link.active {
-    color: var(--primary) !important;
-    font-weight: 700;
-    text-decoration: underline;
-}
 
 /* ============================================
    RESPONSIVE - MEDIA QUERIES CONSOLIDADAS
