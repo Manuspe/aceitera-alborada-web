@@ -1,31 +1,82 @@
+# ============================================
 # Aceitera Alborada S.A. - Robots.txt
-# Santa Fe, Argentina - Aceites Comestibles e Industriales
+# Santa Fe, Argentina
+# Aceites Comestibles e Industriales | Biodiesel | HVO
+# Actualizado: 2025-11-07
+# ============================================
 
+# Configuración general para todos los bots
 User-agent: *
 Allow: /
-Allow: /*.css
-Allow: /*.js
+Allow: /*.css$
+Allow: /*.js$
 Allow: /images/
+Allow: /aceites-comestibles.html
+Allow: /aceites-industriales.html
+Allow: /index.html
+Allow: /privacidad.html
 
-# Archivos a evitar
+# Archivos y directorios restringidos
 Disallow: /admin/
 Disallow: /private/
 Disallow: /.git/
+Disallow: /*.php$
 Disallow: /*?*session=
 Disallow: /*?*sid=
+Disallow: /*?*utm_
+Disallow: /cgi-bin/
 
-# Bots específicos
+# Googlebot - Máxima prioridad
 User-agent: Googlebot
 Allow: /
+Crawl-delay: 0
 
+# Googlebot para imágenes - Indexar todas las imágenes de productos
 User-agent: Googlebot-Image
 Allow: /images/
+Allow: /images/comestibleBote.webp
+Allow: /images/industrialBote.webp
+Allow: /images/logoSFondoVect.svg
 
+# Bingbot - Microsoft
 User-agent: Bingbot
 Allow: /
+Crawl-delay: 1
 
-# Sitemap principal
+# DuckDuckBot
+User-agent: DuckDuckBot
+Allow: /
+Crawl-delay: 1
+
+# Yandex (Rusia - mercado potencial)
+User-agent: Yandex
+Allow: /
+Crawl-delay: 2
+
+# Baiduspider (China - mercado potencial)
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 2
+
+# Bloquear bots maliciosos y scrapers
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: BLEXBot
+Disallow: /
+
+# Sitemap principal (XML)
 Sitemap: https://www.alborada.tech/sitemap.xml
 
-# Crawl delay para evitar sobrecarga
-Crawl-delay: 1
+# Información de contacto para webmasters
+# Email: empresaalboradasa@gmail.com
+# Ubicación: Sauce Viejo, Santa Fe, Argentina

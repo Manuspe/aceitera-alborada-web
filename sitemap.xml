@@ -3,7 +3,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
     <url>
         <loc>https://www.alborada.tech/</loc>
-        <lastmod>2025-11-06</lastmod>
+        <lastmod>2025-11-07</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
         <image:image>
@@ -13,43 +13,51 @@
     </url>
     <url>
         <loc>https://www.alborada.tech/aceites-comestibles.html</loc>
-        <lastmod>2025-11-06</lastmod>
+        <lastmod>2025-11-07</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.95</priority>
+        <image:image>
+            <image:loc>https://www.alborada.tech/images/comestibleBote.webp</image:loc>
+            <image:title>Aceites Comestibles Argentina - Soja Maíz Girasol Oliva</image:title>
+        </image:image>
     </url>
     <url>
         <loc>https://www.alborada.tech/aceites-industriales.html</loc>
-        <lastmod>2025-11-06</lastmod>
+        <lastmod>2025-11-07</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.95</priority>
+        <image:image>
+            <image:loc>https://www.alborada.tech/images/industrialBote.webp</image:loc>
+            <image:title>Biodiesel HVO Combustibles Renovables Argentina</image:title>
+        </image:image>
     </url>
     <url>
         <loc>https://www.alborada.tech/#productos</loc>
-        <lastmod>2025-11-06</lastmod>
+        <lastmod>2025-11-07</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.85</priority>
     </url>
     <url>
         <loc>https://www.alborada.tech/#nosotros</loc>
-        <lastmod>2025-11-06</lastmod>
+        <lastmod>2025-11-07</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.75</priority>
     </url>
     <url>
         <loc>https://www.alborada.tech/#mercados</loc>
-        <lastmod>2025-11-06</lastmod>
+        <lastmod>2025-11-07</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.75</priority>
     </url>
     <url>
         <loc>https://www.alborada.tech/#contacto</loc>
-        <lastmod>2025-11-06</lastmod>
+        <lastmod>2025-11-07</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.70</priority>
     </url>
     <url>
         <loc>https://www.alborada.tech/privacidad.html</loc>
-        <lastmod>2025-11-06</lastmod>
+        <lastmod>2025-11-07</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.3</priority>
     </url>
