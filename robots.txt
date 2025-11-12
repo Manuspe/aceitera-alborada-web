@@ -36,7 +36,7 @@ User-agent: Googlebot-Image
 Allow: /images/
 Allow: /images/comestibleBote.webp
 Allow: /images/industrialBote.webp
-Allow: /images/logoSFondoVect.svg
+Allow: /images/logo-al-2.svg
 
 # Bingbot - Microsoft
 User-agent: Bingbot
